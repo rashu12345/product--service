@@ -1,6 +1,8 @@
 package com.flipcart.product.controller;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,8 @@ import com.flipcart.product.service.ProductService;
 @RequestMapping("/product")
 public class ProductController 
 {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private ProductService productService; 
 	
@@ -59,6 +63,7 @@ public class ProductController
 	@PostMapping("/add-product")
 	public Object addProduct(@RequestBody Product product)
 	{
+		logger.info(product.toString());
 		return productService.addProduct(product);
 	
 	}
