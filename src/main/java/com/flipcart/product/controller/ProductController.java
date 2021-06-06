@@ -77,6 +77,7 @@ public class ProductController
 	@DeleteMapping("/delete-product")
 	 public Object deleteProduct(@RequestParam  int productId)
 	 {
+		logger.info("product Id :"+productId);
 		 return productService.deleteProduct(productId);
 	 }
 		
